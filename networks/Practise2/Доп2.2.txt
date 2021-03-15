@@ -1,0 +1,32 @@
+Из статьи на хабре команды: https://habrahabr.ru/post/162163/
+
+Шаг 7
+1)включить RIPv2 на R2AR0
+	router rip
+ 	version 2
+ 	network 10.0.0.0
+2)Настроить передачу маршрутов RIP в OSPF
+	router ospf 1
+ 	redistribute rip subnets
+
+3) Включим RIPv2 RTRRIP и зададим loopback-и как на картинке
+
+
+Шаг 8
+Сделать область Area 1 тупиковой(Stub).
+	router ospf 1
+ 	area 1 stub
+(на всех роутерах)
+
+Сделать область Area 1 Not so stubby.
+	router ospf 1
+ 	no area 1 stub
+ 	area 1 nssa
+(на всех роутерах)
+
+
+Шаг 9
+Для передачи маршрута по умолчанию, заменяющего External LSA необходимо на ABR роутере выполнить следующую команду:
+	router ospf 1
+ 	area 1 nssa
+ 	area 1 nssa default-information-originate
