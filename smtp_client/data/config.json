@@ -1,0 +1,16 @@
+{
+  "host_address": "smtp.yandex.ru",
+  "port": 465,
+  "user_address": "",
+  "password": "",
+  "subject": "Test",
+  "recipients": [
+    ""
+  ],
+  "message_file": "./data/msg.txt",
+  "attachments": [
+    "./data/picture.png",
+    "./data/smallpicture.png",
+    "./data/матпомощь.docx"
+  ]
+}

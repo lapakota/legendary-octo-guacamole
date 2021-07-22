@@ -1,0 +1,4 @@
+SMTP test
+. test SMTP
+SMTP test.
+.test SMTP
